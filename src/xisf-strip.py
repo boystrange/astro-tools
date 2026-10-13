@@ -27,7 +27,7 @@ def strip(file_name):
                 creator_app = "XISF Strip",
                 image_metadata = ims_meta[0],
                 xisf_metadata = file_meta,
-                codec = 'lz4hc', shuffle = True
+                codec = 'zstd', shuffle = True
             )
         return True
     else:
