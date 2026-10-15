@@ -23,7 +23,7 @@ def go(file_name):
                  1,
                  float(fits['EXPOSURE']),
                  '', # ISO
-                 max(int(fits['XBINNING']), int(fits['YBINNING'])),
+                 max(int(float(fits['XBINNING'])), int(float(fits['YBINNING']))),
                  fits['GAIN'],
                  fits['CCD-TEMP'])
         data.insert(0, frame)

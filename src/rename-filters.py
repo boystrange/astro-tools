@@ -36,6 +36,6 @@ def update(file_name):
             codec = 'lz4hc', shuffle = True
         )
 
-for f in sys.argv[1:]:
-    print('Processing', f, '... ')
-    update(f)
+for p in Path(sys.argv[1]).rglob('*.xisf'):
+    print('Processing', p, '... ')
+    update(p)

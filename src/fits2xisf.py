@@ -27,10 +27,6 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-def fetch(input_file):
-    print(f"Fetching {input_file}...")
-    fits.open(input_file)
-
 def convert(input_file):
     output_file = input_file.with_suffix('.xisf')
 
@@ -63,11 +59,6 @@ def convert(input_file):
     codec = None if args.compression == "none" else args.compression
     XISF.write(output_file, img_data, APP_NAME, img_meta, codec=codec, shuffle=True)
     input_file.unlink()
-
-for p in Path(args.path).rglob('*.fit'):
-    fetch(p)
-for p in Path(args.path).rglob('*.fits'):
-    fetch(p)
 
 for p in Path(args.path).rglob('*.fit'):
     convert(p)
